@@ -1,0 +1,14 @@
+node_modules
+
+TODOs.md
+explorations
+
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+.atom
+.vscode
+.idea
+
+.DS_Store

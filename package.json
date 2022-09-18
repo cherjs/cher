@@ -6,7 +6,7 @@
   "main": "dist/cher.cjs.js",
   "browser": "dist/cher.iife.js",
   "module": "dist/cher.esm.js",
-  "unpkg": "dist/cher.umd.js",
+  "unpkg": "dist/cher.umd.min.js",
   "jsdelivr": "dist/cher.umd.js",
   "files": [
     "src",

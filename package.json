@@ -1,6 +1,6 @@
 {
   "name": "cherjs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Cher is a configurable fetcher based on the native fetch API.",
   "source": "src/index.js",
   "main": "dist/cher.cjs.js",

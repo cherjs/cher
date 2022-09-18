@@ -1,5 +1,5 @@
 /*!
- * Cher v1.0.0
+ * Cher v1.0.1
  * https://gitlab.com/cherjs/cher
  * Copyright (c) 2022 Haász Sándor
  * Released under the MIT License.

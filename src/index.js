@@ -1203,14 +1203,12 @@ class Cher extends EventTarget {
 			)
 		);
 
-		const call = (
+		detail.fetch = (
 			fetch(
 				detail.fetchUrl,
 				detail.fetchOptions,
 			)
 		);
-
-		detail.fetch = call;
 
 		this.#trigger(
 			'started',

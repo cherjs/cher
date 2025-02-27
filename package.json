@@ -33,7 +33,10 @@
     "xhr"
   ],
   "homepage": "https://cherjs.org/",
-  "author": "Haász Sándor",
+  "author": {
+    "name": "Haász Sándor",
+    "email": "haasz@cherjs.org"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",

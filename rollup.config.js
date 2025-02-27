@@ -1,35 +1,44 @@
 import replace from '@rollup/plugin-replace';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
-// import eslint from '@rollup/plugin-eslint';
+import eslint from '@rollup/plugin-eslint';
 import { babel } from '@rollup/plugin-babel';
-import { terser } from 'rollup-plugin-terser';
+import terser from '@rollup/plugin-terser';
 import pkg from './package.json';
 
 const {
-	version,
-	homepage,
 	source,
+	version,
+	repository,
+	name: packageName,
+	homepage,
 	author,
 	license,
 } = pkg;
 
-const url = homepage.split('#')[0];
+const name = (
+	repository
+	.url
+	.split('/')
+	.pop()
+	.split('.')
+	.slice(0, -1)
+	.join('.')
+);
 
-const name = url.split('/').pop();
-
-const year = new Date().getFullYear();
+const year = (new Date()).getFullYear();
 
 const exports = 'auto';
 
 const banner = (
 // eslint-disable-next-line indent
 `/*!
- * ${name.charAt(0).toUpperCase()}${name.slice(1)} v${version}
- * ${url}
- * Copyright (c) 2022${year > 2022 ? `-${year}` : ''} ${author}
+ * ${name.charAt(0).toUpperCase()}${name.slice(1)} v${version} (npm: ${packageName})
+ * ${homepage}
+ * Copyright (c) 2022${year > 2022 ? `-${year}` : ''} ${author.name}
  * Released under the ${license} License.
- */`
+ */
+`
 );
 
 const sourcemap = true;
@@ -53,12 +62,12 @@ const config = {
 
 		commonjs(),
 
-		// eslint(
-		// 	{
-		// 		throwOnError: true,
-		// 		throwOnWarning: true,
-		// 	},
-		// ),
+		eslint(
+			{
+				throwOnError: true,
+				throwOnWarning: true,
+			},
+		),
 
 		babel(
 			{

@@ -19,10 +19,6 @@
     "lint-dev": "esw -w --color ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@gitlab.com/cherjs/cher.git"
-  },
   "keywords": [
     "Cher",
     "cher",
@@ -36,12 +32,16 @@
     "XMLHttpRequest",
     "xhr"
   ],
+  "homepage": "https://cherjs.org/",
   "author": "Haász Sándor",
   "license": "MIT",
-  "bugs": {
-    "url": "https://gitlab.com/cherjs/cher/issues"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cherjs/cher.git"
   },
-  "homepage": "https://gitlab.com/cherjs/cher#readme",
+  "bugs": {
+    "url": "https://github.com/cherjs/cher/issues"
+  },
   "devDependencies": {
     "@babel/core": "^7.18.13",
     "@babel/eslint-parser": "^7.18.9",

@@ -19,12 +19,6 @@ import {
 } from './utilities';
 import ResponseError from './response-error';
 
-if (
-	typeof fetch !== 'function'
-) {
-	throw new Error('The fetch() is not supported.');
-}
-
 const decodings = (
 	freezeObject(
 		toNullObject(
@@ -150,6 +144,13 @@ class Cher extends EventTarget {
 	}
 
 	/* Properties */
+
+	// supported
+
+	// eslint-disable-next-line class-methods-use-this
+	get supported() {
+		return (typeof fetch === 'function');
+	}
 
 	// method
 

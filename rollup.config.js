@@ -165,7 +165,7 @@ function getRollupConfig() {
 							{
 								module: (format === 'esm'),
 								compress: {
-									ecma: 2021,
+									ecma: 2015,
 									pure_getters: true,
 								},
 							},

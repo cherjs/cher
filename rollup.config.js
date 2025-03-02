@@ -26,8 +26,6 @@ const name = (
 	.join('.')
 );
 
-const year = (new Date()).getFullYear();
-
 const exports = 'auto';
 
 const banner = (
@@ -35,7 +33,7 @@ const banner = (
 `/*!
  * ${name.charAt(0).toUpperCase()}${name.slice(1)} v${version} (npm: ${packageName})
  * ${homepage}
- * Copyright (c) 2022${year > 2022 ? `-${year}` : ''} ${author.name}
+ * Copyright (c) 2022-present ${author.name}
  * Released under the ${license} License.
  */
 `

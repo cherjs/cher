@@ -1,37 +1,45 @@
 <div align="center">
-	<a href="https://gitlab.com/cherjs/cher"><img src="https://cherjs.org/cher.svg" alt="Cher" width="128"></a>
-	<h1><a href="https://gitlab.com/cherjs/cher">Cher</a></h1>
-	<p>Cher is a configurable fetcher based on the native fetch API.</p>
+	<a href="https://cherjs.org/"><img src="https://cherjs.org/cher.svg" alt="Cher" width="128"></a>
+	<h1><a href="https://cherjs.org/">Cher</a></h1>
+	<p><a href="https://cherjs.org/">Cher</a> is a configurable fetcher based on the native <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">fetch API</a>.</p>
 </div>
 
 ## Table of contents
 
-- [Quick start](#quick-start)
-
-	- [Installation](#installation)
-
-		- [From NPM](#from-npm)
-
-		- [From CDN](#from-cdn)
-
-	- [Examples of use](#examples-of-use)
-
 - [Documentation](#documentation)
+
+- [Change log](#change-log)
+
+- [Installation](#installation)
+
+    - [From NPM](#from-npm)
+
+    - [From CDN](#from-cdn)
+
+- [Support](#support)
+
+- [Examples](#examples)
 
 - [License](#license)
 
 <!-- toc -->
 
-## Quick start
+## Documentation
 
-### Installation
+**[<img src="https://cherjs.org/cher.svg" width="16"> cherjs.org](https://cherjs.org/)**
 
-####  From NPM
+## Change log
+
+[CHANGELOG.md](./CHANGELOG.md)
+
+## Installation
+
+###  From NPM
 
 It can be installed as an NPM package in a project directory by running the command below:
 
 ```bash
-npm install cherjs
+npm install cherjs@latest
 ```
 
 Then it can be imported for use as an ES module:
@@ -46,9 +54,9 @@ Or as a CommonJS module:
 const cher = require('cherjs');
 ```
 
-The imported `cher` variable contains an instance of Cher.
+The imported `cher` variable contains a [Cher instance](https://cherjs.org/api#cher-instance).
 
-#### From CDN
+### From CDN
 
 Insert the following code snippet into the HTML code (this loads the minified production version):
 
@@ -56,17 +64,39 @@ Insert the following code snippet into the HTML code (this loads the minified pr
 <script src="https://unpkg.com/cherjs"></script>
 ```
 
-Or, if the uncompressed version is needed (for development), then
+Or, if the uncompressed version is needed, then
 
 ```html
 <script src="https://unpkg.com/cherjs/dist/cher.umd.js"></script>
 ```
 
-After that, a Cher instance named `cher` is available in the global scope, that is, as the `cher` property of the global `window` object (`window.cher`).
+After that, a [Cher instance](https://cherjs.org/api#cher-instance) named `cher` is available in the global scope, that is, as the `cher` property of the global [`window`](https://developer.mozilla.org/en-US/docs/Web/API/Window) object (so as `window.cher`).
 
-### Examples of use
+## Support
+
+[Cher](https://cherjs.org/) and [fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) support can be checked with the read-only `supported` boolean property of a [Cher instance](https://cherjs.org/api#cher-instance):
 
 ```js
+if (cher.supported) {
+	// fetch API is supported
+}
+else {
+	// fetch API is not supported
+}
+```
+
+See the [compatibility table on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API#browser_compatibility) for browser and runtime environment support for [fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
+
+## Examples
+
+Each [Cher instance](https://cherjs.org/api#cher-instance) is a reusable agent, meaning it can be used to initiate requests multiple times.
+
+```js
+// Import the initial Cher instance
+import cher from 'cherjs';
+
+// ...
+
 let wikipediaLogo;
 
 // Get Wikipedia logo
@@ -84,7 +114,7 @@ cher(
 
 // ...
 
-// Again: The cher() and the cher.fetch() is the same
+// Again: cher() and cher.fetch() are the same
 cher.fetch(
 	{
 		url: 'https://en.wikipedia.org/static/images/project-logos/enwiki.png',
@@ -99,7 +129,7 @@ cher.fetch(
 
 // ...
 
-// Create a new instance of Cher
+// Create a new Cher instance
 const worldTime = cher.create();
 // Set the base URL
 worldTime.baseURL = 'http://worldtimeapi.org/api/timezone/';
@@ -108,7 +138,7 @@ worldTime.baseURL = '{area}/';
 
 // ...
 
-// Create a new instance of Cher with the previous configuration
+// Create a new Cher instance with the previous configuration
 const europeTime = worldTime.create(true);
 // Complete the configuration
 europeTime.args = {
@@ -166,13 +196,7 @@ europeTime(
 );
 ```
 
-## Documentation
-
-[cherjs.org](https://cherjs.org/)
-
 ## License
-
----
 
 <em>
 
@@ -187,5 +211,3 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 </em>
-
----

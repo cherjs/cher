@@ -74,7 +74,7 @@ After that, a [Cher instance](https://cherjs.org/api#cher-instance) named `cher`
 
 ## Support
 
-[Cher](https://cherjs.org/) and [fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) support can be checked with the read-only `supported` boolean property of a [Cher instance](https://cherjs.org/api#cher-instance):
+[Cher](https://cherjs.org/) and [fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) support can be checked with the read-only [`supported`](https://cherjs.org/api#cher.supported) boolean property of a [Cher instance](https://cherjs.org/api#cher-instance):
 
 ```js
 if (cher.supported) {

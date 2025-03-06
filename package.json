@@ -37,6 +37,7 @@
     "name": "Haász Sándor",
     "email": "haasz@cherjs.org"
   },
+  "funding": "https://github.com/sponsors/haasz",
   "license": "MIT",
   "repository": {
     "type": "git",

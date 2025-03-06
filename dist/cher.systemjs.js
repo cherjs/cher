@@ -1,157 +1,101 @@
 /*!
- * Cher v1.0.1
- * https://gitlab.com/cherjs/cher
- * Copyright (c) 2022 Haász Sándor
+ * Cher v1.1.0 (npm: cherjs)
+ * https://cherjs.org/
+ * Copyright (c) 2022-present Haász Sándor
  * Released under the MIT License.
  */
+
 System.register('cher', [], (function (exports) {
   'use strict';
   return {
     execute: (function () {
 
-      function ownKeys(object, enumerableOnly) {
-        var keys = Object.keys(object);
-
-        if (Object.getOwnPropertySymbols) {
-          var symbols = Object.getOwnPropertySymbols(object);
-          enumerableOnly && (symbols = symbols.filter(function (sym) {
-            return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-          })), keys.push.apply(keys, symbols);
-        }
-
-        return keys;
+      function _assertClassBrand(e, t, n) {
+        if ("function" == typeof e ? e === t : e.has(t)) return arguments.length < 3 ? t : n;
+        throw new TypeError("Private element is not present on this object");
       }
-
-      function _objectSpread2(target) {
-        for (var i = 1; i < arguments.length; i++) {
-          var source = null != arguments[i] ? arguments[i] : {};
-          i % 2 ? ownKeys(Object(source), !0).forEach(function (key) {
-            _defineProperty(target, key, source[key]);
-          }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) {
-            Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-          });
-        }
-
-        return target;
-      }
-
-      function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+      function asyncGeneratorStep(n, t, e, r, o, a, c) {
         try {
-          var info = gen[key](arg);
-          var value = info.value;
-        } catch (error) {
-          reject(error);
-          return;
+          var i = n[a](c),
+            u = i.value;
+        } catch (n) {
+          return void e(n);
         }
-
-        if (info.done) {
-          resolve(value);
-        } else {
-          Promise.resolve(value).then(_next, _throw);
-        }
+        i.done ? t(u) : Promise.resolve(u).then(r, o);
       }
-
-      function _asyncToGenerator(fn) {
+      function _asyncToGenerator(n) {
         return function () {
-          var self = this,
-              args = arguments;
-          return new Promise(function (resolve, reject) {
-            var gen = fn.apply(self, args);
-
-            function _next(value) {
-              asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+          var t = this,
+            e = arguments;
+          return new Promise(function (r, o) {
+            var a = n.apply(t, e);
+            function _next(n) {
+              asyncGeneratorStep(a, r, o, _next, _throw, "next", n);
             }
-
-            function _throw(err) {
-              asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+            function _throw(n) {
+              asyncGeneratorStep(a, r, o, _next, _throw, "throw", n);
             }
-
-            _next(undefined);
+            _next(void 0);
           });
         };
       }
-
-      function _defineProperty(obj, key, value) {
-        if (key in obj) {
-          Object.defineProperty(obj, key, {
-            value: value,
-            enumerable: true,
-            configurable: true,
-            writable: true
+      function _checkPrivateRedeclaration(e, t) {
+        if (t.has(e)) throw new TypeError("Cannot initialize the same private elements twice on an object");
+      }
+      function _classPrivateFieldGet2(s, a) {
+        return s.get(_assertClassBrand(s, a));
+      }
+      function _classPrivateFieldInitSpec(e, t, a) {
+        _checkPrivateRedeclaration(e, t), t.set(e, a);
+      }
+      function _classPrivateFieldSet2(s, a, r) {
+        return s.set(_assertClassBrand(s, a), r), r;
+      }
+      function _classPrivateMethodInitSpec(e, a) {
+        _checkPrivateRedeclaration(e, a), a.add(e);
+      }
+      function _defineProperty(e, r, t) {
+        return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, {
+          value: t,
+          enumerable: true,
+          configurable: true,
+          writable: true
+        }) : e[r] = t, e;
+      }
+      function ownKeys(e, r) {
+        var t = Object.keys(e);
+        if (Object.getOwnPropertySymbols) {
+          var o = Object.getOwnPropertySymbols(e);
+          r && (o = o.filter(function (r) {
+            return Object.getOwnPropertyDescriptor(e, r).enumerable;
+          })), t.push.apply(t, o);
+        }
+        return t;
+      }
+      function _objectSpread2(e) {
+        for (var r = 1; r < arguments.length; r++) {
+          var t = null != arguments[r] ? arguments[r] : {};
+          r % 2 ? ownKeys(Object(t), true).forEach(function (r) {
+            _defineProperty(e, r, t[r]);
+          }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) {
+            Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r));
           });
-        } else {
-          obj[key] = value;
         }
-
-        return obj;
+        return e;
       }
-
-      function _classPrivateFieldGet(receiver, privateMap) {
-        var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get");
-
-        return _classApplyDescriptorGet(receiver, descriptor);
-      }
-
-      function _classPrivateFieldSet(receiver, privateMap, value) {
-        var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "set");
-
-        _classApplyDescriptorSet(receiver, descriptor, value);
-
-        return value;
-      }
-
-      function _classExtractFieldDescriptor(receiver, privateMap, action) {
-        if (!privateMap.has(receiver)) {
-          throw new TypeError("attempted to " + action + " private field on non-instance");
+      function _toPrimitive(t, r) {
+        if ("object" != typeof t || !t) return t;
+        var e = t[Symbol.toPrimitive];
+        if (void 0 !== e) {
+          var i = e.call(t, r);
+          if ("object" != typeof i) return i;
+          throw new TypeError("@@toPrimitive must return a primitive value.");
         }
-
-        return privateMap.get(receiver);
+        return ("string" === r ? String : Number)(t);
       }
-
-      function _classApplyDescriptorGet(receiver, descriptor) {
-        if (descriptor.get) {
-          return descriptor.get.call(receiver);
-        }
-
-        return descriptor.value;
-      }
-
-      function _classApplyDescriptorSet(receiver, descriptor, value) {
-        if (descriptor.set) {
-          descriptor.set.call(receiver, value);
-        } else {
-          if (!descriptor.writable) {
-            throw new TypeError("attempted to set read only private field");
-          }
-
-          descriptor.value = value;
-        }
-      }
-
-      function _classPrivateMethodGet(receiver, privateSet, fn) {
-        if (!privateSet.has(receiver)) {
-          throw new TypeError("attempted to get private field on non-instance");
-        }
-
-        return fn;
-      }
-
-      function _checkPrivateRedeclaration(obj, privateCollection) {
-        if (privateCollection.has(obj)) {
-          throw new TypeError("Cannot initialize the same private elements twice on an object");
-        }
-      }
-
-      function _classPrivateFieldInitSpec(obj, privateMap, value) {
-        _checkPrivateRedeclaration(obj, privateMap);
-
-        privateMap.set(obj, value);
-      }
-
-      function _classPrivateMethodInitSpec(obj, privateSet) {
-        _checkPrivateRedeclaration(obj, privateSet);
-
-        privateSet.add(obj);
+      function _toPropertyKey(t) {
+        var i = _toPrimitive(t, "string");
+        return "symbol" == typeof i ? i : i + "";
       }
 
       // eslint-disable-next-line no-void
@@ -164,15 +108,11 @@ System.register('cher', [], (function (exports) {
         return Object.create(null);
       }
       function getNormalizedObject(keys, object) {
-        var _object;
-
-        (_object = object) !== null && _object !== void 0 ? _object : object = createNullObject();
+        object !== null && object !== void 0 ? object : object = createNullObject();
         var normalizedObject = createNullObject();
-
         for (var i = 0; i < keys.length; ++i) {
           normalizedObject[keys[i]] = object[keys[i]];
         }
-
         return normalizedObject;
       }
       function toNullObject(object) {
@@ -188,25 +128,27 @@ System.register('cher', [], (function (exports) {
         OPTIONS: 1,
         TRACE: 1,
         PATCH: 1
-      })); // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/GET
+      }));
+
+      // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/GET
       // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/HEAD
       // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/CONNECT
       // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/OPTIONS
       // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/TRACE
-
       var bodylessHttpRequestMethods = freezeObject(toNullObject({
         GET: 1,
         HEAD: 1,
         CONNECT: 1,
         OPTIONS: 1,
         TRACE: 1
-      })); // https://fetch.spec.whatwg.org/#statuses
+      }));
+
+      // https://fetch.spec.whatwg.org/#statuses
       // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/101
       // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/103
       // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/204
       // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/205
       // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/304
-
       var bodylessHttpResponseStatusCodes = freezeObject(toNullObject({
         101: 1,
         103: 1,
@@ -228,34 +170,29 @@ System.register('cher', [], (function (exports) {
         return value instanceof TypeConstructor || Object.prototype.toString.call(value) === "[object ".concat(typeName, "]");
       }
       function evalSimpleTemplate(template, args, delimiters) {
-        var _delimiters$, _delimiters$2, _delimiters, _delimiters2;
-
-        delimiters = isObject(delimiters) ? [toString((_delimiters$ = delimiters[0]) !== null && _delimiters$ !== void 0 ? _delimiters$ : ''), toString((_delimiters$2 = delimiters[1]) !== null && _delimiters$2 !== void 0 ? _delimiters$2 : '')] : [toString((_delimiters = delimiters) !== null && _delimiters !== void 0 ? _delimiters : ''), toString((_delimiters2 = delimiters) !== null && _delimiters2 !== void 0 ? _delimiters2 : '')];
+        var _delimiters$, _delimiters$2;
+        delimiters = isObject(delimiters) ? [toString((_delimiters$ = delimiters[0]) !== null && _delimiters$ !== void 0 ? _delimiters$ : ''), toString((_delimiters$2 = delimiters[1]) !== null && _delimiters$2 !== void 0 ? _delimiters$2 : '')] : [toString(delimiters !== null && delimiters !== void 0 ? delimiters : ''), toString(delimiters !== null && delimiters !== void 0 ? delimiters : '')];
         var result = toString(template !== null && template !== void 0 ? template : '');
-
         if (isObject(args)) {
           Object.keys(args).forEach(key => {
             result = result.split("".concat(delimiters[0]).concat(key).concat(delimiters[1])).join(args[key]);
           });
         }
-
         return result;
       }
       var getURLObject = function getURLObject(url) {
         var _document, _location;
-
         for (var _len = arguments.length, bases = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
           bases[_key - 1] = arguments[_key];
         }
-
         var base = bases.length ? getURLObject(...bases) : ((_document = document) === null || _document === void 0 ? void 0 : _document.baseURI // eslint-disable-next-line no-restricted-globals
-        ) || ((_location = location) === null || _location === void 0 ? void 0 : _location.href); // because of Edge Legacy (before Edge 79)
-        // https://developer.mozilla.org/en-US/docs/Web/API/URL/URL#examples
+        ) || ((_location = location) === null || _location === void 0 ? void 0 : _location.href);
 
+        // because of Edge Legacy (before Edge 79)
+        // https://developer.mozilla.org/en-US/docs/Web/API/URL/URL#examples
         if (toString(url) === '') {
           url = base;
         }
-
         return new URL(url, base);
       };
       function appendParamsToParams(params1, params2) {
@@ -265,7 +202,6 @@ System.register('cher', [], (function (exports) {
         for (var _len2 = arguments.length, bases = new Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
           bases[_key2 - 2] = arguments[_key2];
         }
-
         var urlObject = getURLObject(url, ...bases);
         new URLSearchParams(params).forEach((value, key) => {
           urlObject.searchParams.append(key, value);
@@ -276,42 +212,34 @@ System.register('cher', [], (function (exports) {
         for (var _len3 = arguments.length, bases = new Array(_len3 > 5 ? _len3 - 5 : 0), _key3 = 5; _key3 < _len3; _key3++) {
           bases[_key3 - 5] = arguments[_key3];
         }
-
         return appendParamsToURL(params, ...[url, ...bases].map(value => evalTemplate(toString(value !== null && value !== void 0 ? value : ''), args, delimiters)));
       }
       function toFormData(data) {
         if (isType(data, FormData, 'FormData')) {
           return data;
         }
-
         if (isType(data, HTMLFormElement, 'HTMLFormElement')) {
           return new FormData(data);
         }
-
         var formData = new FormData();
-
         if (isArray(data)) {
           for (var i = 0; i < data.length; ++i) {
             formData.append(...data[i]);
           }
-
           return formData;
         }
-
         if (isType(data, URLSearchParams, 'URLSearchParams')) {
           data.forEach((value, key) => {
             formData.append(key, value);
           });
           return formData;
         }
-
         if (isObject(data)) {
           Object.keys(data).forEach(key => {
             formData.append(key, ...(isArray(data[key]) ? data[key] : [data[key]]));
           });
           return formData;
         }
-
         return new FormData(data);
       }
 
@@ -320,21 +248,13 @@ System.register('cher', [], (function (exports) {
           for (var _len = arguments.length, args = new Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
             args[_key - 2] = arguments[_key];
           }
-
           super(message == null ? "HTTP ".concat(response.status || '<unknown-status>', " ").concat(response.statusText || '') : message, ...args);
-
           if (Error.captureStackTrace) {
             Error.captureStackTrace(this, ResponseError);
           }
-
           this.name = 'ResponseError';
           this.response = response;
         }
-
-      }
-
-      if (typeof fetch !== 'function') {
-        throw new Error('The fetch() is not supported.');
       }
 
       var decodings = freezeObject(toNullObject({
@@ -343,11 +263,9 @@ System.register('cher', [], (function (exports) {
             var text = yield response.text();
             return text ? JSON.parse(text) : undef;
           });
-
           function json(_x) {
             return _json.apply(this, arguments);
           }
-
           return json;
         }(),
         'strict-json': 'json',
@@ -384,275 +302,157 @@ System.register('cher', [], (function (exports) {
         data: undef,
         options: undef
       });
-
       var initialDefaults = _objectSpread2({}, defaults);
-
       var defaultKeys = Object.keys(defaults);
       var instanceKeys = [...defaultKeys];
       var fetchKeys = [...defaultKeys, 'listeners'];
-
       function getNormalizedMethod(value) {
         value = toString(value).toUpperCase();
         return value in httpRequestMethods ? value : undef;
       }
-
       function isURL(value) {
         return typeof value === 'string' || isType(value, URL, 'URL');
       }
-
       var _method = /*#__PURE__*/new WeakMap();
-
       var _evalTemplate = /*#__PURE__*/new WeakMap();
-
       var _delimiters = /*#__PURE__*/new WeakMap();
-
       var _baseURL = /*#__PURE__*/new WeakMap();
-
       var _url = /*#__PURE__*/new WeakMap();
-
       var _args = /*#__PURE__*/new WeakMap();
-
       var _params = /*#__PURE__*/new WeakMap();
-
       var _decode = /*#__PURE__*/new WeakMap();
-
       var _encode = /*#__PURE__*/new WeakMap();
-
       var _data = /*#__PURE__*/new WeakMap();
-
       var _options = /*#__PURE__*/new WeakMap();
-
-      var _setAccept = /*#__PURE__*/new WeakSet();
-
-      var _setContent = /*#__PURE__*/new WeakSet();
-
-      var _getJSONContent = /*#__PURE__*/new WeakSet();
-
-      var _getTextContent = /*#__PURE__*/new WeakSet();
-
-      var _getURLSearchContent = /*#__PURE__*/new WeakSet();
-
-      var _getFormDataContent = /*#__PURE__*/new WeakSet();
-
-      var _getBinaryContent = /*#__PURE__*/new WeakSet();
-
-      var _getBlobContent = /*#__PURE__*/new WeakSet();
-
-      var _getFileContent = /*#__PURE__*/new WeakSet();
-
-      var _getStreamContent = /*#__PURE__*/new WeakSet();
-
-      var _trigger = /*#__PURE__*/new WeakSet();
-
+      var _Cher_brand = /*#__PURE__*/new WeakSet();
       class Cher extends EventTarget {
         constructor() {
           super();
+          _classPrivateMethodInitSpec(this, _Cher_brand);
+          // method
 
-          _classPrivateMethodInitSpec(this, _trigger);
+          _classPrivateFieldInitSpec(this, _method, void 0);
+          // evalTemplate
 
-          _classPrivateMethodInitSpec(this, _getStreamContent);
+          _classPrivateFieldInitSpec(this, _evalTemplate, void 0);
+          // delimiters
 
-          _classPrivateMethodInitSpec(this, _getFileContent);
+          _classPrivateFieldInitSpec(this, _delimiters, void 0);
+          // baseURL
 
-          _classPrivateMethodInitSpec(this, _getBlobContent);
+          _classPrivateFieldInitSpec(this, _baseURL, []);
+          // url
 
-          _classPrivateMethodInitSpec(this, _getBinaryContent);
+          _classPrivateFieldInitSpec(this, _url, void 0);
+          // args
 
-          _classPrivateMethodInitSpec(this, _getFormDataContent);
+          _classPrivateFieldInitSpec(this, _args, void 0);
+          // params
 
-          _classPrivateMethodInitSpec(this, _getURLSearchContent);
+          _classPrivateFieldInitSpec(this, _params, void 0);
+          // decode
 
-          _classPrivateMethodInitSpec(this, _getTextContent);
+          _classPrivateFieldInitSpec(this, _decode, void 0);
+          // encode
 
-          _classPrivateMethodInitSpec(this, _getJSONContent);
+          _classPrivateFieldInitSpec(this, _encode, void 0);
+          // data
 
-          _classPrivateMethodInitSpec(this, _setContent);
+          _classPrivateFieldInitSpec(this, _data, void 0);
+          // options
 
-          _classPrivateMethodInitSpec(this, _setAccept);
-
-          _classPrivateFieldInitSpec(this, _method, {
-            writable: true,
-            value: void 0
-          });
-
-          _classPrivateFieldInitSpec(this, _evalTemplate, {
-            writable: true,
-            value: void 0
-          });
-
-          _classPrivateFieldInitSpec(this, _delimiters, {
-            writable: true,
-            value: void 0
-          });
-
-          _classPrivateFieldInitSpec(this, _baseURL, {
-            writable: true,
-            value: []
-          });
-
-          _classPrivateFieldInitSpec(this, _url, {
-            writable: true,
-            value: void 0
-          });
-
-          _classPrivateFieldInitSpec(this, _args, {
-            writable: true,
-            value: void 0
-          });
-
-          _classPrivateFieldInitSpec(this, _params, {
-            writable: true,
-            value: void 0
-          });
-
-          _classPrivateFieldInitSpec(this, _decode, {
-            writable: true,
-            value: void 0
-          });
-
-          _classPrivateFieldInitSpec(this, _encode, {
-            writable: true,
-            value: void 0
-          });
-
-          _classPrivateFieldInitSpec(this, _data, {
-            writable: true,
-            value: void 0
-          });
-
-          _classPrivateFieldInitSpec(this, _options, {
-            writable: true,
-            value: void 0
-          });
-
+          _classPrivateFieldInitSpec(this, _options, void 0);
           this.reset();
           this.set(...arguments);
         }
+
         /* Properties */
-        // method
 
+        // supported
 
+        // eslint-disable-next-line class-methods-use-this
+        get supported() {
+          return typeof fetch === 'function';
+        }
         get method() {
-          return _classPrivateFieldGet(this, _method);
+          return _classPrivateFieldGet2(_method, this);
         }
-
         set method(value) {
-          _classPrivateFieldSet(this, _method, getNormalizedMethod(value));
-        } // evalTemplate
-
-
+          _classPrivateFieldSet2(_method, this, getNormalizedMethod(value));
+        }
         get evalTemplate() {
-          return _classPrivateFieldGet(this, _evalTemplate);
+          return _classPrivateFieldGet2(_evalTemplate, this);
         }
-
         set evalTemplate(value) {
-          _classPrivateFieldSet(this, _evalTemplate, typeof value === 'function' ? value : template => template);
-        } // delimiters
-
-
-        get delimiters() {
-          return _classPrivateFieldGet(this, _delimiters);
+          _classPrivateFieldSet2(_evalTemplate, this, typeof value === 'function' ? value : template => template);
         }
-
+        get delimiters() {
+          return _classPrivateFieldGet2(_delimiters, this);
+        }
         set delimiters(value) {
           var _value$, _value$2;
-
-          _classPrivateFieldSet(this, _delimiters, isObject(value) ? [toString((_value$ = value[0]) !== null && _value$ !== void 0 ? _value$ : ''), toString((_value$2 = value[1]) !== null && _value$2 !== void 0 ? _value$2 : '')] : [toString(value !== null && value !== void 0 ? value : ''), toString(value !== null && value !== void 0 ? value : '')]);
-        } // baseURL
-
-
-        get baseURL() {
-          return _classPrivateFieldGet(this, _baseURL);
+          _classPrivateFieldSet2(_delimiters, this, isObject(value) ? [toString((_value$ = value[0]) !== null && _value$ !== void 0 ? _value$ : ''), toString((_value$2 = value[1]) !== null && _value$2 !== void 0 ? _value$2 : '')] : [toString(value !== null && value !== void 0 ? value : ''), toString(value !== null && value !== void 0 ? value : '')]);
         }
-
+        get baseURL() {
+          return _classPrivateFieldGet2(_baseURL, this);
+        }
         set baseURL(value) {
-          var _value;
-
-          (_value = value) !== null && _value !== void 0 ? _value : value = [];
-
+          value !== null && value !== void 0 ? value : value = [];
           if (!isArray(value)) {
-            value = [..._classPrivateFieldGet(this, _baseURL), value];
+            value = [..._classPrivateFieldGet2(_baseURL, this), value];
           }
-
-          _classPrivateFieldSet(this, _baseURL, value.reduce((reducedItems, item) => {
-            var _item;
-
-            item = toString((_item = item) !== null && _item !== void 0 ? _item : '');
-
+          _classPrivateFieldSet2(_baseURL, this, value.reduce((reducedItems, item) => {
+            item = toString(item !== null && item !== void 0 ? item : '');
             if (item) {
               reducedItems.push(item);
             }
-
             return reducedItems;
           }, []));
-        } // url
-
-
+        }
         get url() {
-          return _classPrivateFieldGet(this, _url);
+          return _classPrivateFieldGet2(_url, this);
         }
-
         set url(value) {
-          _classPrivateFieldSet(this, _url, toString(value !== null && value !== void 0 ? value : ''));
-        } // args
-
-
+          _classPrivateFieldSet2(_url, this, toString(value !== null && value !== void 0 ? value : ''));
+        }
         get args() {
-          return _classPrivateFieldGet(this, _args);
+          return _classPrivateFieldGet2(_args, this);
         }
-
         set args(value) {
-          _classPrivateFieldSet(this, _args, value !== null && value !== void 0 ? value : undef);
-        } // params
-
-
+          _classPrivateFieldSet2(_args, this, value !== null && value !== void 0 ? value : undef);
+        }
         get params() {
-          return _classPrivateFieldGet(this, _params);
+          return _classPrivateFieldGet2(_params, this);
         }
-
         set params(value) {
-          _classPrivateFieldSet(this, _params, value !== null && value !== void 0 ? value : undef);
-        } // decode
-
-
+          _classPrivateFieldSet2(_params, this, value !== null && value !== void 0 ? value : undef);
+        }
         get decode() {
-          return _classPrivateFieldGet(this, _decode);
+          return _classPrivateFieldGet2(_decode, this);
         }
-
         set decode(value) {
-          _classPrivateFieldSet(this, _decode, value in decodings ? toString(value) : undef);
-        } // encode
-
-
+          _classPrivateFieldSet2(_decode, this, value in decodings ? toString(value) : undef);
+        }
         get encode() {
-          return _classPrivateFieldGet(this, _encode);
+          return _classPrivateFieldGet2(_encode, this);
         }
-
         set encode(value) {
-          _classPrivateFieldSet(this, _encode, value in encodings ? toString(value) : undef);
-        } // data
-
-
+          _classPrivateFieldSet2(_encode, this, value in encodings ? toString(value) : undef);
+        }
         get data() {
-          return _classPrivateFieldGet(this, _data);
+          return _classPrivateFieldGet2(_data, this);
         }
-
         set data(value) {
-          _classPrivateFieldSet(this, _data, value);
-        } // options
-
-
-        get options() {
-          return _classPrivateFieldGet(this, _options);
+          _classPrivateFieldSet2(_data, this, value);
         }
-
+        get options() {
+          return _classPrivateFieldGet2(_options, this);
+        }
         set options(value) {
           if (isObject(value)) {
             value = _objectSpread2({}, value);
-
             if ('method' in value) {
               var method = getNormalizedMethod(value.method);
-
               if (isUndefined(method)) {
                 delete value.method;
               } else {
@@ -662,123 +462,96 @@ System.register('cher', [], (function (exports) {
           } else {
             value = undef;
           }
-
-          _classPrivateFieldSet(this, _options, value);
+          _classPrivateFieldSet2(_options, this, value);
         }
+
         /* Methods */
+
         // eslint-disable-next-line class-methods-use-this
-
-
         getDefault(key) {
           return defaults[key];
         }
-
         setDefault(key, value, reset) {
           if (key in defaultKeys) {
             defaults[key] = value;
-
             if (reset) {
               this[key] = typeof defaults[key] === 'function' ? defaults[key]() : defaults[key];
             }
           }
         }
-
         resetDefault(key, reset) {
           this.setDefault(key, initialDefaults[key], reset);
-        } // eslint-disable-next-line class-methods-use-this
+        }
 
-
+        // eslint-disable-next-line class-methods-use-this
         getDefaults() {
           return getNormalizedObject(defaultKeys, defaults);
         }
-
         setDefaults() {
-          var _config;
-
           for (var _len = arguments.length, config = new Array(_len), _key = 0; _key < _len; _key++) {
             config[_key] = arguments[_key];
           }
-
           var url;
           var reset;
-
           if (isURL(config[0])) {
             [url, config, reset] = config;
             config.url = url;
           } else {
             [config, reset] = config;
           }
-
-          (_config = config) !== null && _config !== void 0 ? _config : config = createNullObject();
+          config !== null && config !== void 0 ? config : config = createNullObject();
           defaultKeys.forEach(key => {
             if (key in config) {
               this.setDefault(key, config[key], reset);
             }
           });
-
           if (!isUndefined(url)) {
             this.setDefault('url', url, reset);
           }
         }
-
         resetDefaults(reset) {
           this.setDefaults(initialDefaults, reset);
         }
-
         reset(initial) {
           var values = initial ? initialDefaults : defaults;
           defaultKeys.forEach(key => {
             this[key] = typeof values[key] === 'function' ? values[key]() : values[key];
           });
         }
-
         set() {
-          var _config2;
-
           for (var _len2 = arguments.length, config = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
             config[_key2] = arguments[_key2];
           }
-
           var url;
-
           if (isURL(config[0])) {
             [url, config] = config;
           } else {
             [config] = config;
           }
-
-          (_config2 = config) !== null && _config2 !== void 0 ? _config2 : config = createNullObject();
+          config !== null && config !== void 0 ? config : config = createNullObject();
           instanceKeys.forEach(key => {
             if (key in config) {
               this[key] = config[key];
             }
           });
-
           if (!isUndefined(url)) {
             this.url = url;
           }
         }
-
         getConfig() {
           return getNormalizedObject(instanceKeys, this);
         }
-
         getURL() {
-          var _config3, _delimiters2, _url2, _args2, _params2;
-
           for (var _len3 = arguments.length, config = new Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
             config[_key3] = arguments[_key3];
           }
-
           var url;
-
           if (isURL(config[0])) {
             [url, config] = config;
           } else {
             [config] = config;
           }
-
-          (_config3 = config) !== null && _config3 !== void 0 ? _config3 : config = createNullObject();
+          config !== null && config !== void 0 ? config : config = createNullObject();
           var {
             evalTemplate,
             delimiters,
@@ -786,36 +559,27 @@ System.register('cher', [], (function (exports) {
             args,
             params
           } = config;
-
           if (isUndefined(url)) {
             ({
               url
             } = config);
           }
-
           evalTemplate = typeof evalTemplate === 'function' ? evalTemplate : this.evalTemplate;
-          (_delimiters2 = delimiters) !== null && _delimiters2 !== void 0 ? _delimiters2 : delimiters = this.delimiters;
+          delimiters !== null && delimiters !== void 0 ? delimiters : delimiters = this.delimiters;
           baseURL = [...this.baseURL, ...(isArray(baseURL) ? baseURL : [baseURL]).reduce((reducedItems, item) => {
-            var _item2;
-
-            item = toString((_item2 = item) !== null && _item2 !== void 0 ? _item2 : '');
-
+            item = toString(item !== null && item !== void 0 ? item : '');
             if (item) {
               reducedItems.push(item);
             }
-
             return reducedItems;
           }, [])];
-          url = toString((_url2 = url) !== null && _url2 !== void 0 ? _url2 : this.url);
-          args = _objectSpread2(_objectSpread2({}, this.args), (_args2 = args) !== null && _args2 !== void 0 ? _args2 : undef);
-          params = appendParamsToParams(this.params, (_params2 = params) !== null && _params2 !== void 0 ? _params2 : undef);
+          url = toString(url !== null && url !== void 0 ? url : this.url);
+          args = _objectSpread2(_objectSpread2({}, this.args), args !== null && args !== void 0 ? args : undef);
+          params = appendParamsToParams(this.params, params !== null && params !== void 0 ? params : undef);
           return getURL(evalTemplate, delimiters, args, params, url, ...baseURL.reverse());
         }
-
         getOptions(config) {
-          var _config4;
-
-          (_config4 = config) !== null && _config4 !== void 0 ? _config4 : config = createNullObject();
+          config !== null && config !== void 0 ? config : config = createNullObject();
           var {
             decode,
             encode,
@@ -826,23 +590,18 @@ System.register('cher', [], (function (exports) {
             options
           } = config;
           method = getNormalizedMethod(method);
-
           if (isUndefined(method)) {
             method = this.method;
           }
-
           if (method) {
             method = {
               method
             };
           }
-
           if (isObject(options)) {
             options = _objectSpread2({}, options);
-
             if ('method' in options) {
               var methodOption = getNormalizedMethod(options.method);
-
               if (isUndefined(methodOption)) {
                 delete options.method;
               } else {
@@ -852,7 +611,6 @@ System.register('cher', [], (function (exports) {
           } else {
             options = undef;
           }
-
           options = _objectSpread2(_objectSpread2(_objectSpread2({
             method: 'GET'
           }, this.options), options), method);
@@ -861,35 +619,25 @@ System.register('cher', [], (function (exports) {
           var {
             headers
           } = options;
-
-          _classPrivateMethodGet(this, _setAccept, _setAccept2).call(this, headers, decode);
-
-          _classPrivateMethodGet(this, _setContent, _setContent2).call(this, method, headers, options, encode, data);
-
+          _assertClassBrand(_Cher_brand, this, _setAccept).call(this, headers, decode);
+          _assertClassBrand(_Cher_brand, this, _setContent).call(this, method, headers, options, encode, data);
           return options;
         }
-
         fetch() {
           var _this = this;
-
           for (var _len4 = arguments.length, config = new Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
             config[_key4] = arguments[_key4];
           }
-
           var url;
-
           if (isURL(config[0])) {
             [url, config] = config;
           } else {
             [config] = config;
           }
-
           config = getNormalizedObject(fetchKeys, config);
-
           if (!isUndefined(url)) {
             config.url = url;
           }
-
           var {
             listeners
           } = config;
@@ -897,162 +645,128 @@ System.register('cher', [], (function (exports) {
             instance: this,
             fetchConfig: config
           };
-
-          _classPrivateMethodGet(this, _trigger, _trigger2).call(this, 'start', {
+          _assertClassBrand(_Cher_brand, this, _trigger).call(this, 'start', {
             detail
           }, listeners);
-
           detail.fetchUrl = this.getURL(config);
           detail.fetchOptions = this.getOptions(config);
-          var call = fetch(detail.fetchUrl, detail.fetchOptions);
-          detail.fetch = call;
-
-          _classPrivateMethodGet(this, _trigger, _trigger2).call(this, 'started', {
+          detail.fetch = fetch(detail.fetchUrl, detail.fetchOptions);
+          _assertClassBrand(_Cher_brand, this, _trigger).call(this, 'started', {
             detail
           }, listeners);
-
           return detail.fetch.then(response => {
             detail.response = response;
-
-            _classPrivateMethodGet(this, _trigger, _trigger2).call(this, 'loaded', {
+            _assertClassBrand(_Cher_brand, this, _trigger).call(this, 'loaded', {
               detail
             }, listeners);
-
             if (!detail.response.ok) {
               throw new ResponseError(detail.response);
             }
-
-            _classPrivateMethodGet(this, _trigger, _trigger2).call(this, 'checked', {
+            _assertClassBrand(_Cher_brand, this, _trigger).call(this, 'checked', {
               detail
             }, listeners);
-
             return detail.response;
-          }).then( /*#__PURE__*/function () {
+          }).then(/*#__PURE__*/function () {
             var _ref = _asyncToGenerator(function* (response) {
               if (response.status in bodylessHttpResponseStatusCodes || response.body == null) {
-                _classPrivateMethodGet(_this, _trigger, _trigger2).call(_this, 'bodyless', {
+                _assertClassBrand(_Cher_brand, _this, _trigger).call(_this, 'bodyless', {
                   detail
                 }, listeners);
               } else {
-                var _decode2;
-
                 var {
                   decode
                 } = config;
-                decode = toString((_decode2 = decode) !== null && _decode2 !== void 0 ? _decode2 : '') || _this.decode;
+                decode = toString(decode !== null && decode !== void 0 ? decode : '') || _this.decode;
                 decode = decodings[decode];
-
                 if (decode) {
                   response.data = typeof decode === 'function' ? yield decode(response) : yield response[decode]();
-
-                  _classPrivateMethodGet(_this, _trigger, _trigger2).call(_this, 'decoded', {
+                  _assertClassBrand(_Cher_brand, _this, _trigger).call(_this, 'decoded', {
                     detail
                   }, listeners);
                 } else {
                   response.data = response.body;
-
-                  _classPrivateMethodGet(_this, _trigger, _trigger2).call(_this, 'unprocessed', {
+                  _assertClassBrand(_Cher_brand, _this, _trigger).call(_this, 'unprocessed', {
                     detail
                   }, listeners);
                 }
               }
-
               return detail.response;
             });
-
             return function (_x2) {
               return _ref.apply(this, arguments);
             };
           }()).catch(error => {
             detail.error = error;
-
-            _classPrivateMethodGet(this, _trigger, _trigger2).call(this, 'error', {
+            _assertClassBrand(_Cher_brand, this, _trigger).call(this, 'error', {
               detail
             }, listeners);
-
             if (detail.error != null) {
-              _classPrivateMethodGet(this, _trigger, _trigger2).call(this, 'uncatched', {
+              _assertClassBrand(_Cher_brand, this, _trigger).call(this, 'uncatched', {
                 detail
               }, listeners);
-
               throw detail.error;
             }
-
-            _classPrivateMethodGet(this, _trigger, _trigger2).call(this, 'catched', {
+            _assertClassBrand(_Cher_brand, this, _trigger).call(this, 'catched', {
               detail
             }, listeners);
-
             return detail.response;
           }).finally(() => {
-            _classPrivateMethodGet(this, _trigger, _trigger2).call(this, 'end', {
+            _assertClassBrand(_Cher_brand, this, _trigger).call(this, 'end', {
               detail
             }, listeners);
           });
         }
-
         create() {
           for (var _len5 = arguments.length, config = new Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
             config[_key5] = arguments[_key5];
           }
-
           if (config[0] === true) {
             config[0] = this.getConfig();
           }
-
-          return (// eslint-disable-next-line no-use-before-define
+          return (
+            // eslint-disable-next-line no-use-before-define
             createCher(...config)
           );
         }
-
       }
-
-      function _setAccept2(headers, decode) {
+      function _setAccept(headers, decode) {
         decode = decode in decodings ? toString(decode) : this.decode;
         var accept;
-
         switch (decode) {
           case 'json':
             accept = 'application/json,text/plain,*/*';
             break;
-
           case 'text':
             accept = 'text/plain,*/*';
             break;
-
           case 'url':
             accept = 'application/x-www-form-urlencoded,*/*';
             break;
-
           case 'form':
             accept = 'application/x-www-form-urlencoded,multipart/form-data,*/*';
             break;
-
           case 'blob':
           case 'file':
           case 'stream':
           case 'buffer':
             if (!headers.has('Accept')) {
-              accept = '*/*'; // accept = 'application/octet-stream,*/*';
+              accept = '*/*';
+              // accept = 'application/octet-stream,*/*';
             }
-
             break;
         }
-
         if (!(accept || headers.has('Accept'))) {
-          accept = '*/*'; // accept = 'application/json,text/plain,*/*';
+          accept = '*/*';
+          // accept = 'application/json,text/plain,*/*';
         }
-
         if (accept) {
           headers.set('Accept', accept);
         }
-
         return headers;
       }
-
-      function _setContent2(method, headers, options, encode, data) {
+      function _setContent(method, headers, options, encode, data) {
         method = getNormalizedMethod(method);
         encode = encode in encodings ? toString(encode) : this.encode;
-
         if (method in bodylessHttpRequestMethods) {
           headers.delete('Content-Type');
           delete options.body;
@@ -1060,36 +774,29 @@ System.register('cher', [], (function (exports) {
           switch (encode) {
             case 'json':
               headers.set('Content-Type', 'application/json;charset=UTF-8');
-              options.body = _classPrivateMethodGet(this, _getJSONContent, _getJSONContent2).call(this, data);
+              options.body = _assertClassBrand(_Cher_brand, this, _getJSONContent).call(this, data);
               break;
-
             case 'text':
               headers.set('Content-Type', 'text/plain;charset=UTF-8');
-              options.body = _classPrivateMethodGet(this, _getTextContent, _getTextContent2).call(this, data);
+              options.body = _assertClassBrand(_Cher_brand, this, _getTextContent).call(this, data);
               break;
-
             case 'url':
               headers.set('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8');
-              options.body = _classPrivateMethodGet(this, _getURLSearchContent, _getURLSearchContent2).call(this, data);
+              options.body = _assertClassBrand(_Cher_brand, this, _getURLSearchContent).call(this, data);
               break;
-
             case 'form':
               headers.delete('Content-Type');
-              options.body = _classPrivateMethodGet(this, _getFormDataContent, _getFormDataContent2).call(this, data);
+              options.body = _assertClassBrand(_Cher_brand, this, _getFormDataContent).call(this, data);
               break;
-
             case 'blob':
-              options.body = _classPrivateMethodGet(this, _getBlobContent, _getBlobContent2).call(this, data);
+              options.body = _assertClassBrand(_Cher_brand, this, _getBlobContent).call(this, data);
               break;
-
             case 'file':
-              options.body = _classPrivateMethodGet(this, _getFileContent, _getFileContent2).call(this, data);
+              options.body = _assertClassBrand(_Cher_brand, this, _getFileContent).call(this, data);
               break;
-
             case 'stream':
-              options.body = _classPrivateMethodGet(this, _getStreamContent, _getStreamContent2).call(this, data);
+              options.body = _assertClassBrand(_Cher_brand, this, _getStreamContent).call(this, data);
               break;
-
             case 'buffer':
             case 'none':
             default:
@@ -1101,8 +808,7 @@ System.register('cher', [], (function (exports) {
           delete options.body;
         }
       }
-
-      function _getJSONContent2(data) {
+      function _getJSONContent(data) {
         if (isArray(data)) {
           if (isArray(this.data)) {
             data = [...this.data, ...data];
@@ -1114,126 +820,104 @@ System.register('cher', [], (function (exports) {
         } else if (isUndefined(data)) {
           data = this.data;
         }
-
         return JSON.stringify(data);
       }
-
-      function _getTextContent2(data) {
+      function _getTextContent(data) {
         return toString(isUndefined(data) ? this.data : data);
       }
-
-      function _getURLSearchContent2(data) {
+      function _getURLSearchContent(data) {
         return appendParamsToParams(this.data, data);
       }
-
-      function _getFormDataContent2(data) {
+      function _getFormDataContent(data) {
         if (isUndefined(this.data)) {
           return toFormData(data);
         }
-
         var formData = toFormData(this.data);
-
         if (!isUndefined(data)) {
           toFormData(data).forEach((value, key) => {
             formData.append(key, value);
           });
         }
-
         return formData;
       }
-
-      function _getBinaryContent2(data, TypeConstructor, typeName) {
+      function _getBinaryContent(data, TypeConstructor, typeName) {
         data = isUndefined(data) ? this.data : data;
-
         if (isType(data, TypeConstructor, typeName)) {
           return data;
         }
-
         if (!isArray(data)) {
           data = [data];
         }
-
         return new TypeConstructor(isArray(data[0]) ? data[0] : [data[0]], ...data.slice(1));
       }
-
-      function _getBlobContent2(data) {
-        return _classPrivateMethodGet(this, _getBinaryContent, _getBinaryContent2).call(this, data, Blob, 'Blob');
+      function _getBlobContent(data) {
+        return _assertClassBrand(_Cher_brand, this, _getBinaryContent).call(this, data, Blob, 'Blob');
       }
-
-      function _getFileContent2(data) {
-        return _classPrivateMethodGet(this, _getBinaryContent, _getBinaryContent2).call(this, data, File, 'File');
+      function _getFileContent(data) {
+        return _assertClassBrand(_Cher_brand, this, _getBinaryContent).call(this, data, File, 'File');
       }
-
-      function _getStreamContent2(data) {
+      function _getStreamContent(data) {
         data = isUndefined(data) ? this.data : data;
-
         if (isType(data, ReadableStream, 'ReadableStream')) {
           return data;
         }
-
         return new ReadableStream(...(isArray(data) ? data : [data]));
       }
-
-      function _trigger2(type, event, listeners) {
-        var _event, _listeners;
-
-        (_event = event) !== null && _event !== void 0 ? _event : event = createNullObject();
+      function _trigger(type, event, listeners) {
+        var _listeners;
+        event !== null && event !== void 0 ? event : event = createNullObject();
         var {
-          detail // bubbles,
+          detail
+          // bubbles,
           // cancelable,
           // composed,
-
         } = event;
         listeners = (_listeners = listeners) === null || _listeners === void 0 ? void 0 : _listeners[type];
-
         if (listeners) {
           listeners = isArray(listeners) ? [...listeners] : [listeners];
           listeners.forEach((listener, index) => {
             if (!isArray(listener)) {
               listeners[index] = [listener];
             }
-
             this.addEventListener(type, ...listeners[index]);
           });
         }
-
         this.dispatchEvent(new CustomEvent(type, {
-          detail // bubbles,
+          detail
+          // bubbles,
           // cancelable,
           // composed,
-
         }));
-
         if (listeners) {
           listeners.forEach(listener => {
             this.removeEventListener(type, ...listener);
           });
         }
       }
-
       function createCher() {
         for (var _len6 = arguments.length, config = new Array(_len6), _key6 = 0; _key6 < _len6; _key6++) {
           config[_key6] = arguments[_key6];
         }
-
         var instance = new Cher(...config);
-        var cher = instance.fetch.bind(instance); // properties
+        var cher = instance.fetch.bind(instance);
 
+        // properties
         ['method', 'evalTemplate', 'delimiters', 'baseURL', 'url', 'args', 'params', 'decode', 'encode', 'data', 'options'].forEach(property => {
           Object.defineProperty(cher, property, {
             get() {
               return instance[property];
             },
-
             set(value) {
               instance[property] = value;
             }
-
           });
-        }); // methods
+        });
 
-        [// super (EventTarget)
-        'addEventListener', 'removeEventListener', 'dispatchEvent', // own (Cher)
+        // methods
+        [
+        // super (EventTarget)
+        'addEventListener', 'removeEventListener', 'dispatchEvent',
+        // own (Cher)
         'getDefault', 'setDefault', 'resetDefault', 'getDefaults', 'setDefaults', 'resetDefaults', 'reset', 'set', 'getConfig', 'getURL', 'getOptions', 'fetch', 'create'].forEach(method => {
           Object.defineProperty(cher, method, {
             configurable: true,
@@ -1243,8 +927,7 @@ System.register('cher', [], (function (exports) {
         });
         return cher;
       }
-
-      var index = exports('default', createCher());
+      var index = exports("default", createCher());
 
     })
   };

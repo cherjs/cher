@@ -2,6 +2,13 @@
 	<a href="https://cherjs.org/"><img src="https://cherjs.org/cher.svg" alt="Cher" width="128"></a>
 	<h1><a href="https://cherjs.org/">Cher</a></h1>
 	<p><a href="https://cherjs.org/">Cher</a> is a configurable fetcher based on the native <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">fetch API</a>.</p>
+	<p>
+		<a href="https://www.npmjs.com/package/cherjs" target="_blank"><img alt="NPM Version" src="https://img.shields.io/npm/v/cherjs?color=%230086df"></a>
+		<a href="https://cherjs.org/guide#license" target="_blank"><img alt="NPM License" src="https://img.shields.io/npm/l/cherjs?&color=%2300a000"></a>
+		<a href="https://cherjs.org/" target="_blank"><img alt="Website" src="https://img.shields.io/website?url=https%3A%2F%2Fcherjs.org%2F&up_message=cherjs.org&color=%23b01020"></a>
+		<a href="https://www.npmjs.com/package/cherjs" target="_blank"><img alt="NPM bundle size" src="https://img.shields.io/bundlephobia/min/cherjs?color=%230086df"></a>
+		<a href="https://www.npmjs.com/package/cherjs" target="_blank"><img alt="NPM package minimized gzipped size" src="https://img.shields.io/bundlejs/size/cherjs?&color=%2300a000"></a>
+	</p>
 </div>
 
 ## Table of contents

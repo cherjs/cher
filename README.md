@@ -115,6 +115,7 @@ cher(
 )
 .then(
 	(response) => {
+		// file
 		wikipediaLogo = response.data;
 	},
 );
@@ -130,6 +131,7 @@ cher.fetch(
 )
 .then(
 	(response) => {
+		// file
 		wikipediaLogo = response.data;
 	},
 );
@@ -160,6 +162,7 @@ let romeTime;
 europeTime('Rome')
 .then(
 	(response) => {
+		// object
 		romeTime = response.data;
 	},
 );
@@ -179,6 +182,7 @@ europeTime(
 )
 .then(
 	(response) => {
+		// object
 		romeTime = response.data;
 	},
 );
@@ -198,6 +202,7 @@ europeTime(
 )
 .then(
 	(response) => {
+		// object
 		reykjavikTime = response.data;
 	},
 );

@@ -68,13 +68,13 @@ The imported `cher` variable contains a [Cher instance](https://cherjs.org/api#c
 Insert the following code snippet into the HTML code (this loads the minified production version):
 
 ```html
-<script src="https://unpkg.com/cherjs"></script>
+<script src="https://cdn.jsdelivr.net/npm/cherjs"></script>
 ```
 
 Or, if the uncompressed version is needed, then
 
 ```html
-<script src="https://unpkg.com/cherjs/dist/cher.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cherjs/dist/cher.umd.js"></script>
 ```
 
 After that, a [Cher instance](https://cherjs.org/api#cher-instance) named `cher` is available in the global scope, that is, as the `cher` property of the global [`window`](https://developer.mozilla.org/en-US/docs/Web/API/Window) object (so as `window.cher`).

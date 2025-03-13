@@ -7,8 +7,8 @@ class ResponseError extends Error {
 	) {
 		super(
 			(
-				message == null
-				? (
+				message
+				?? (
 					`HTTP ${
 						response.status
 						|| '<unknown-status>'
@@ -17,7 +17,6 @@ class ResponseError extends Error {
 						|| ''
 					}`
 				)
-				: message
 			),
 			...args,
 		);

@@ -12,9 +12,10 @@ class ResponseError extends Error {
 					`HTTP ${
 						response.status
 						|| '<unknown-status>'
-					} ${
+					}${
 						response.statusText
-						|| ''
+						? ` ${response.statusText}`
+						: ''
 					}`
 				)
 			),

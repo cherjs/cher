@@ -1330,7 +1330,7 @@ class Cher extends EventTarget {
 
 					if (detail.error != null) {
 						this.#trigger(
-							'uncatched',
+							'unhandlederror',
 							{
 								detail,
 							},
@@ -1341,7 +1341,7 @@ class Cher extends EventTarget {
 					}
 
 					this.#trigger(
-						'catched',
+						'handlederror',
 						{
 							detail,
 						},
